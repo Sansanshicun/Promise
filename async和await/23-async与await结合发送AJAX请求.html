@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+	<button class="btn">点击获取信息</button>
+	<script>
+		function sendAjax(url) {
+			return new Promise((reolve, reject) => {
+				const xhr = new XMLHttpRequest();
+				xhr.responseType='json'
+				xhr.open('GET', url);
+				xhr.send();
+				// 处理结果
+				xhr.onreadystatechange = function () {
+					if (xhr.readyState === 4) {
+						if (xhr.status >= 200 && xhr.status < 300) {
+							reolve(xhr.response)
+						} else {
+							reject(xhr.status)
+						}
+					}
+				}
+			})
+		}
+
+		let btn=document.querySelector('.btn')
+		btn.addEventListener('click',async function(){
+			//获取信息
+			let xinxi=await sendAjax('https://api.shop.eduwork.cn/api/index')
+			console.log(xinxi);
+		})
+	</script>
+</body>
+</html>

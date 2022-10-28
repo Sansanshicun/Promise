@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+
+<body>
+	<script>
+		// Promise.race 方法: (promises) => { }
+		// (1) promises: 包含 n 个 promise 的数组
+		// 说明: 返回一个新的 promise, 第一个完成的 promise 的结果状态就是最终的结果状态
+
+		
+		let p1 = new Promise((resolve, reject) => {
+			//如果给第一个promise对象加上一个settimeout延时器则按顺序查找
+			setTimeout(() => {
+				resolve('ok')
+			}, 1000);
+
+		})
+		let p2 = Promise.resolve('ni hao');
+		let p3 = Promise.reject('error');
+		// 返回一个新的 promise,第一个完成的 promise 的结果状态就是最终的结果状态
+		const result = Promise.race([p1, p2, p3])
+		console.log(result);
+
+	</script>
+
+</body>
+
+</html>

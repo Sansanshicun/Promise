@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+
+<body>
+	<script>
+		// Promise.resolve 方法: (value) => { }
+		// (1) value: 成功的数据或 promise 对象
+		// 说明: 返回一个成功 / 失败的 promise 对象
+		let p1 = Promise.resolve(521);
+		console.log(p1);//521
+		//如果传入的参数为非promise类型的对象，则返回结果为成功的promise对象
+		//如果传入的参数为Promise对象，则参数的结果决定了resolve的结果
+		let p2 = Promise.resolve(new Promise((resolve, reject) => {
+			// resolve('ok')
+			reject('error')
+		}));
+		console.log(p2);
+		p2.catch(reason => {
+			console.log(reason);
+		})
+	</script>
+</body>
+
+</html>

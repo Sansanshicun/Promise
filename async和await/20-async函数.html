@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		async function main(){
+			//1、如果返回值是一个非promise类型的数据
+			// return 411
+			//2、如果返回值是一个Promise对象 则返回值的状态决定了mian返回结果的状态
+			// return new Promise((resolve,reject)=>{
+			// 	resolve('ok')
+			// })
+			//3、抛出错误
+			// throw 'emmmmmmm'
+
+		}
+		let result=main()
+		console.log(result);
+	</script>
+</body>
+</html>

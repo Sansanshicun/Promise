@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+
+<body>
+	<script>
+		let p = new Promise((resolve, reject) => {
+			resolve('ok')
+		})
+		//执行then方法
+		let result = p.then(value => {
+			// console.log(value);
+			// 1.抛出错误
+			// throw '出现问题'
+			// 2.返回结果是非promise类型对象
+			// return 521
+			// 3.返回结果是promise对象
+			return new Promise((resolve, reject) => {
+				resolve('ok')
+			})
+		}, reason => {
+			console.warn(reason);
+		})
+	</script>
+</body>
+
+</html>

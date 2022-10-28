@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+
+<body>
+	<script>
+		// Promise.all 方法: (promises) => { }
+		// (1) promises: 包含 n 个 promise 的数组
+		// 说明: 返回一个新的 promise, 只有所有的 promise 都成功才成功, 只要有一个失败了就直接失败
+		let p1 = new Promise((resolve, reject) => {
+			resolve('ok')
+		})
+		let p2 = Promise.resolve('ni hao');
+		let p3 = Promise.reject('error');
+		// 返回一个新的 promise, 只有所有的 promise 都成功才成功, 只要有一个失败了就直接失败
+		const result = Promise.all([p1, p2, p3])
+		console.log(result);
+	</script>
+</body>
+
+</html>

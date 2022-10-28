@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+
+<body>
+	<script>
+		// Promise.reject 方法: (reason) => { }
+		// (1) reason: 失败的原因
+		// 说明: 返回一个失败的 promise 对象
+
+		let p1 = Promise.reject(521);
+		console.log(p1);//状态为失败rejected
+
+		//reject 返回的结果永远都是失败的
+		let p2 = Promise.reject(new Promise((resolve, reject) => {
+			resolve('ok')//状态为失败rejected
+		}));
+		console.log(p2);
+
+	</script>
+</body>
+
+</html>
